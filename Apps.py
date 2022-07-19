@@ -19,10 +19,8 @@ LOGGER = get_logger(__name__)
 
 
 def run():
-    st.set_page_config(
-        page_title="Hello",
-        page_icon="👋",
-    )
+    st.set_page_config(page_title="TASC Weolcome page",page_icon="random",layout="wide")
+    st.image("TASC-orange-horizontal-logo.png",width=500)
 
     st.write("# Welcome to Project TASC! ")
 
@@ -30,7 +28,7 @@ def run():
 
     st.markdown(
         """
-        Comment optimiser des processus logistiques et d’achats ​par les techniques d’IA et de Blockchain
+        Comment optimiser des processus logistiques et d’achats par les techniques d’IA et de Blockchain
 
         ** 👈 Select a demo from the sidebar** to see some examples
       
