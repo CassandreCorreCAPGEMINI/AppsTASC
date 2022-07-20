@@ -11,11 +11,9 @@
 # here put the import lib
 
 
-from ast import IsNot
+
 import streamlit as st
-import inspect
-import textwrap
-import time
+
 
 ## for data
 import json
@@ -23,9 +21,7 @@ import pandas as pd
 import numpy as np
 from tqdm import tqdm
 import pickle
-## for plotting
-import matplotlib.pyplot as plt
-import seaborn as sns
+
 ## for processing
 import re
 import nltk
@@ -34,8 +30,7 @@ import spacy
 from sklearn import feature_extraction, feature_selection , model_selection, naive_bayes, pipeline, manifold, preprocessing, metrics
 from sklearn.model_selection import train_test_split, KFold, StratifiedKFold, cross_val_score, GridSearchCV
 from sklearn.feature_selection import chi2
-## for explainer
-from lime import lime_text
+
 ## for word embedding
 import gensim
 import gensim.downloader as gensim_api
@@ -76,23 +71,67 @@ VALIDATION_SPLIT = 0.2
 NUM_CATEGORIES = 14
 
 st.set_page_config(page_title="Classification of text", page_icon="random")
-st.image("TASC-orange-horizontal-logo.png",width=500)
+st.image("TASC-orange-horizontal-logo.png",width=600)
 
-st.header("Options pour deploy AI")
-st.markdown(
-        """
-        ### ​​ Application intégrée
-        - Script exécuté locale ou sous le logiciel RPA
-        - API Rest(API web): Python, flask
-        ### ​​ Application indépendante(Web Application)
-        - frontend: Html,CSS, backend:Python, Flask
-        - frontend et backend: js(vue,React, node.js)
-        - frontend et backend: Python(streamlit) (⚠️this Demo⚠️) . 
+# st.header("Deep learning for text classification")
+# st.markdown(
+#         """
+#         1. Deep learning methods are proving very good at text classification, achieving state-of-the-art results on a suite of standard academic benchmark problems.
+#         - TextCNN, TextRNN, FastText, Transformers
+#         2. But these algorithms don't work well enough on the Pody dataset.
+#     """
+#     )
+
+# st.header("Data Description")
+# st.markdown(
+#         """
+#         1. 13 categories et 81 sub-categories: distribution très déséquilibré
+#         2. Ambiguous classification: le bruit dans les données peut affecter négativement le modèle
+#         Ex: 165 disputes contain « Merci de réessayer » are classified into different categories
+#     """
+#     )
+# st.image("ambiguity.png",width=800)
+# st.image("ambiguity1.png",width=500)
+# st.markdown(
+#         """
+#         3. Text augmentation, Ambiguity clean
+
+#     """
+#     )
+
+# st.header("Objectifs")
+# st.markdown(
+#         """
+#         1. Distinguer le texte qui peut être traité manuellement et automatiquement?​
+#         2. Un niveau de performance le plus élevé possible (proche à 100%)
+#     """
+#     )
+
+# st.header("Application of Deep learning model")
+# st.markdown(
+#         """
+#         1. Application intégrée
+#         - Script exécuté locale ou sous le logiciel RPA
+#         - API Rest(API web): Python, flask
+#         2. Application indépendante(Web Application)
+#         - frontend: Html,CSS, backend:Python, Flask
+#         - frontend et backend: js(vue,React, node.js)
+#         - frontend et backend: Python(streamlit) (⚠️this Demo⚠️) . 
         
-    """
-    )
+#     """
+#     )
+# st.header("Options pour deploy AI")
+# st.markdown(
+#         """
+#         - Seveur intern
+#         - Cloud: AWS, Google Cloud, Azure
+#         - https://streamlit.io/ : Streamlit turns data scripts into shareable web apps in minutes. All in pure Python. No front‑end experience required.
+#     """
+#     )
 
-# @st.cache
+st.title("Disputes classifcation")
+
+@st.cache
 def get_data(file):
     dtf = pd.read_csv(file, sep=';',encoding = 'utf-8',header=0,dtype=str)
     print('all data shape', dtf.shape)
@@ -170,7 +209,7 @@ def pody_demo():
     status_text = st.sidebar.empty()
     last_rows = np.random.randn(1, 1)
     
-    st.title("Disputes classifcation")
+
 
     st.write(
     """This demo show how to classify the tickets with AI"""
@@ -261,7 +300,7 @@ def pody_demo():
     # model1 = keras.models.load_model(project_path+'models\\pody_categories')
     # model2 = keras.models.load_model(project_path+'models\\pody_sub_categories')
 
-    ModelType = st.radio("Choose your model",["TextCNN", "DistilBERT","etc."])
+    ModelType = st.radio("Choose your model",["TextCNN", "TextRNN","DistilBERT","etc."])
 
     if st.button("Predict the tickets"): 
         list_disputes = dtf['text_clean']

@@ -96,8 +96,8 @@ def load_model(model_checkpoint):
 def load_tokenizer(model_checkpoint):
     return AutoTokenizer.from_pretrained(model_checkpoint, use_fast=False)
 
-model = load_model(model_checkpoint)
-tokenizer = load_tokenizer(model_checkpoint)
+# model = load_model(model_checkpoint)
+# tokenizer = load_tokenizer(model_checkpoint)
 
 # model = AutoModelForQuestionAnswering.from_pretrained(model_checkpoint)
 # tokenizer = AutoTokenizer.from_pretrained(model_checkpoint, use_fast=False)
