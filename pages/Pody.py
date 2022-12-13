@@ -9,12 +9,7 @@
 '''
 
 # here put the import lib
-
-
-
 import streamlit as st
-
-
 ## for data
 import json
 import pandas as pd
@@ -36,16 +31,16 @@ import gensim
 import gensim.downloader as gensim_api
 from gensim.models import KeyedVectors
 ## for deep learning
-from tensorflow.keras import backend as K
-from tensorflow.keras.preprocessing.text import Tokenizer
-from tensorflow.keras.preprocessing.sequence import pad_sequences
-from tensorflow.keras.layers import Dense, Input, GlobalMaxPooling1D, Dropout
-from tensorflow.keras.layers import Conv1D, MaxPooling1D, Embedding
-from tensorflow.keras.models import Model
-from tensorflow.keras.initializers import Constant
-from tensorflow.keras.callbacks import ModelCheckpoint
+from keras import backend as K
+from keras.preprocessing.text import Tokenizer
+from keras.utils import pad_sequences
+from keras.layers import Dense, Input, GlobalMaxPooling1D, Dropout
+from keras.layers import Conv1D, MaxPooling1D, Embedding
+from keras.models import Model
+# from keras.initializers import Constant
+from keras.callbacks import ModelCheckpoint
 from tensorflow import keras
-from tensorflow.keras import regularizers
+from keras import regularizers
 
 from streamlit.hello.utils import show_code
 
@@ -70,8 +65,8 @@ EMBEDDING_DIM = 1000
 VALIDATION_SPLIT = 0.2
 NUM_CATEGORIES = 14
 
-st.set_page_config(page_title="Classification of text", page_icon="random")
-st.image("TASC-orange-horizontal-logo.png",width=600)
+# st.set_page_config(page_title="Classification of text", page_icon="random")
+# st.image("TASC-orange-horizontal-logo.png",width=600)
 
 # st.header("Deep learning for text classification")
 # st.markdown(
@@ -202,6 +197,21 @@ def preprocess_text_fr(text, flg_stemm=False, flg_lemm=False, lst_stopwords=None
     # print(text)
     return text
 
+le = preprocessing.LabelEncoder()
+le1 = preprocessing.LabelEncoder()
+
+with open(project_path+"data\\pody\\le_category.pkl", 'rb') as pkl_file:
+    le = pickle.load(pkl_file) 
+    pkl_file.close()
+    
+with open(project_path+"data\\pody\\le_sub_category.pkl", 'rb') as pkl_file1:
+    le1 = pickle.load(pkl_file1) 
+    pkl_file1.close()
+
+## tokenize text
+with open(project_path+"data\\pody\\tokenizer.pkl", 'rb') as handle:
+    tokenizer = pickle.load(handle)
+    handle.close()
 
 def pody_demo():
    
@@ -228,22 +238,6 @@ def pody_demo():
     print(X.shape, y.shape,y1.shape)
     corpus = df['text']
 
-    le = preprocessing.LabelEncoder()
-    le1 = preprocessing.LabelEncoder()
-
-    with open(project_path+"data\\pody\\le_category.pkl", 'rb') as pkl_file:
-        le = pickle.load(pkl_file) 
-        pkl_file.close()
-    
-    with open(project_path+"data\\pody\\le_sub_category.pkl", 'rb') as pkl_file1:
-        le1 = pickle.load(pkl_file1) 
-        pkl_file1.close()
-
-    # le = preprocessing.LabelEncoder()
-    # le.fit(y)
-
-    # le1 = preprocessing.LabelEncoder()
-    # le1.fit(y1)
 
     lst_stopwords = nltk.corpus.stopwords.words("french")
     lst_stopwords = list()
@@ -257,9 +251,6 @@ def pody_demo():
         lst_corpus.append(lst_grams)
     print(len(lst_corpus))
 
-    ## tokenize text
-    with open(project_path+"data\\pody\\tokenizer.pkl", 'rb') as handle:
-        tokenizer = pickle.load(handle)
 
     ## create sequence
     lst_text2seq= tokenizer.texts_to_sequences(lst_corpus)
@@ -281,7 +272,7 @@ def pody_demo():
     
 
     response = AgGrid(
-        df,
+        test_df,
         gridOptions=gridOptions,
         enable_enterprise_modules=True,
         update_mode=GridUpdateMode.MODEL_CHANGED,
@@ -336,6 +327,7 @@ def pody_demo():
         st.dataframe(result)
 
 
+def pody_demo1():
     st.header("Enter the your dispute")
 
     # Add space for ticket
@@ -369,11 +361,13 @@ def pody_demo():
         predicted_valid = le.inverse_transform(predicted_label)
         print(predicted_valid)
 
+    
+
         predicted_valid_prob2 = model2.predict(X)
         print(X[0])
-        predicted_label2=[list(x).index(max(x)) for x in predicted_valid_prob]
+        predicted_label2=[list(x).index(max(x)) for x in predicted_valid_prob2]
         print(predicted_label2)
-        predicted_valid2 = le1.inverse_transform(predicted_label)
+        predicted_valid2 = le1.inverse_transform(predicted_label2)
         print(predicted_valid2)
 
 
@@ -402,5 +396,6 @@ with st.expander("ℹ️ - About this app", expanded=True):
 model1 = keras.models.load_model(project_path+'models\\pody_categories')
 model2 = keras.models.load_model(project_path+'models\\pody_sub_categories')
 pody_demo()
+pody_demo1()
 
 # show_code(pody_demo)
