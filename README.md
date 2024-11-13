@@ -1,5 +1,7 @@
 # Name of the repository
 
+AppsTASC
+
 ## Description
 
 This project contains all demo codes of the TASC project.
@@ -36,11 +38,8 @@ Code snippets example:
 
 
 ```python
-# Import the necessary modules
-from maadatamanager.load_extract.manage_datasets import DataSetManager
-from maadatamanager.load_extract import data_extraction, preprocessing, epoching, medusa_utils
 
-# Your python functions, ...
+streamlit run Apps.py
 
 ```
 
