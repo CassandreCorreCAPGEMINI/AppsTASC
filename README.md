@@ -1,6 +1,4 @@
-# Name of the repository
-
-AppsTASC
+# AppsTASC
 
 ## Description
 
