@@ -38,7 +38,7 @@ Code snippets example:
 
 
 ```python
-
+# The necessary commands to run this demo app
 streamlit run Apps.py
 
 ```
