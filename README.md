@@ -2,7 +2,7 @@
 
 ## Description
 
-This section offers a concise overview of the repository's purpose, detailing what it contains and its intended use. It serves as an introduction to the repository's functionality.
+This project contains all demo codes of the TASC project.
 
 ## RDI Method: EDC(s)
 If this repository contains several "EDCs'branches" they need to be listed them and the link toward the PDE document and the internal article need to be added. 
@@ -10,20 +10,9 @@ For instance:
 
 | EDCs| PDE | Internal Article |Current State| Main File| Main Contributor|Corresponding EDC|
 |----------|----------|----------|----------|----------|----------|----------|
-| 2.044| [Link to PDE](https://capgemini.sharepoint.com/:p:/r/sites/RIMindActProject/Shared%20Documents/M%C3%A9thodeRDI_MindAct/Fiches_PdE/Fiche_PdE_2.044_DW_31012024.pptx?d=w983127e1021740f49ade529e38bb7d49&csf=1&web=1&e=7eN67b)| [Link to Internal Article](https://capgemini.sharepoint.com/:w:/r/sites/RIMindActProject/Shared%20Documents/M%C3%A9thodeRDI_MindAct/Articles_MindAct/Articles%20internes/Article_Interne_EdC_2.044_DW_31012024.docx?d=wc96b58f25845425aa9bc731d17c85f92&csf=1&web=1&e=2b4ozU) |Consolidated | [main.py](...)<!--link to the file-->| John Doe|X
-| X.XXX | [Link to PDE](...) | [Link to Internal Article](...)|Consolidating| [extractor.py](...)<!--link to the file-->| Jane Doe|
-| ... | ... | ..|..| ..|..|
 
 
-This Readme has to be converted to a pdf file for each new EDC using the following terminology EDCNumber_Readme_V_Versionnumber.pdf and uploaded to the project SharePoint. It needs to be done when:
-- a CIR review happened
-- the new EDC is completed 
-
-In the first case, the column "Main file" must be updated with the file name the main contributor is working on for the corresponding new EDCs ( corresponding EDCs line). The main contributor also needs to update the "Current State." The number of the current EDC and the name of the main contributor need to be completed. There is no need to complete "PDE" and "Internal Article" since, at this stage, no PDE and internal articles have been produced. The line of the corresponding EDC needs to be highlighted in red.
-
-In the second case, the only difference from the previous cases is that the columns "PDE" and "Internal Article" need to be completed with the corresponding state, and "Current State" needs to be changed to Consolidated.
-
-To add value to each part of the code produced in a project, they must be linked to an EDC.
+This Readme has to be converted to a pdf file for each new EDC using the following terminology EDCNumber_Readme_V_Versionnumber.pdf and uploaded to the project SharePoint. 
 
 
 ## Requirements
@@ -65,7 +54,7 @@ If one would like to contribute to the repository, issues can be reported, impro
 This code is for internal use and research purposes only.
 
 ## Contact
-For any questions or inquiries, please contact the maintener 
+For any questions or inquiries, please contact the maintener xin.huang@capgemini.com
 
 ## Acknowledgements
 Contributors acknowledge and express gratitude to individuals, organizations, or projects that have contributed to or influenced the repository's development. It's a way to recognize and appreciate external contributions and collaborations.

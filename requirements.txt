@@ -1,0 +1,13 @@
+plotly
+gspread
+pandas
+numpy
+streamlit
+google-cloud-aiplatform
+sentence-transformers
+pypdf
+pdf2image 
+pillow
+PyMuPDF
+pytesseract
+websocket-client
