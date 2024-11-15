@@ -9,7 +9,8 @@ If this repository contains several "EDCs'branches" they need to be listed them 
 For instance:
 
 | EDCs| PDE | Internal Article |Current State| Main File| Main Contributor|Corresponding EDC|
-|----------|----------|----------|----------|----------|----------|----------|
+|2.004|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdEhqTY2Eh5Pv96VtLIYRCMBlQtLHIzJF9cjqrAmpmlwAg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/ESjmdDSDqBdAsO-hf8D30eMB2UkJiCzH-JoJQUce0jtrCA)|Consolidé| ... |HUANG Xin| ... |
+
 
 
 This Readme has to be converted to a pdf file for each new EDC using the following terminology EDCNumber_Readme_V_Versionnumber.pdf and uploaded to the project SharePoint. 
