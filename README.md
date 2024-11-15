@@ -17,7 +17,7 @@ This project contains all demo codes of the TASC project.
 
 ## Requirements
 
-
+...
 
 ## Installation
 
@@ -37,6 +37,7 @@ streamlit run Apps.py
 
 ## Documentation
 
+...
 
 ## Contributing
 If one would like to contribute to the repository, issues can be reported, improvements suggested, or merge requests submitted. The guidelines need to be followed for contributing and any specific requirements or coding standards need to be adopted.
@@ -49,6 +50,9 @@ For any questions or inquiries, please contact the maintener xin.huang@capgemini
 
 ## Acknowledgements
 
+...
 
 ## References
+
+...
 
