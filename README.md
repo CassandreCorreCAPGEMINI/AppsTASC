@@ -10,7 +10,9 @@ For instance:
 
 | EDCs| PDE | Internal Article |Current State| Main File| Main Contributor|Corresponding EDC|
 |----------|----------|----------|----------|----------|----------|----------|
-|2.004|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdEhqTY2Eh5Pv96VtLIYRCMBlQtLHIzJF9cjqrAmpmlwAg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/ESjmdDSDqBdAsO-hf8D30eMB2UkJiCzH-JoJQUce0jtrCA)|Consolidé| [extractor.py](...)|HUANG Xin| ... |
+|2.004|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdEhqTY2Eh5Pv96VtLIYRCMBlQtLHIzJF9cjqrAmpmlwAg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/ESjmdDSDqBdAsO-hf8D30eMB2UkJiCzH-JoJQUce0jtrCA)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
+|2.010|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdHaLcrVWeBBu6UiHLPN-n0BSrhjsNah5IM3wHvojZqmVQ)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EW4Pivo4gTFMq6AJSRL7gfkBdY99erAHCIWbTZWgebJEVA)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
+|3.002|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EV5asCoZRjpHmvgsam-hvHEBO9sf4qM8A5_u54EpiHoTkQ)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EWR_nL8aE59MvRXz0-b9tk8BljSQE26TN9q44DoFUKMXPg)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
 
 
 
