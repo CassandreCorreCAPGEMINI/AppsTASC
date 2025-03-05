@@ -1,29 +1,26 @@
-# Name of the repository
-
-AppsTASC
+# AppsTASC
 
 ## Description
 
 This project contains all demo codes of the TASC project.
 
 ## RDI Method: EDC(s)
-If this repository contains several "EDCs'branches" they need to be listed them and the link toward the PDE document and the internal article need to be added. 
-For instance:
 
 | EDCs| PDE | Internal Article |Current State| Main File| Main Contributor|Corresponding EDC|
 |----------|----------|----------|----------|----------|----------|----------|
+|2.004|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdEhqTY2Eh5Pv96VtLIYRCMBlQtLHIzJF9cjqrAmpmlwAg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/ESjmdDSDqBdAsO-hf8D30eMB2UkJiCzH-JoJQUce0jtrCA)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
+|2.010|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdHaLcrVWeBBu6UiHLPN-n0BSrhjsNah5IM3wHvojZqmVQ)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EW4Pivo4gTFMq6AJSRL7gfkBdY99erAHCIWbTZWgebJEVA)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
+|3.002|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EV5asCoZRjpHmvgsam-hvHEBO9sf4qM8A5_u54EpiHoTkQ)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EWR_nL8aE59MvRXz0-b9tk8BljSQE26TN9q44DoFUKMXPg)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
+|4.003|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/ERVHoIk5znxCtWG8jiJR9g8Bigv1mKQpJr4w7MEEf_NTmg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EYKA-SKZd6VIjNJhQ8-pFKIB1K3wDV5cv1rL_o_iecMR7A)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
 
-
-This Readme has to be converted to a pdf file for each new EDC using the following terminology EDCNumber_Readme_V_Versionnumber.pdf and uploaded to the project SharePoint. 
 
 
 ## Requirements
 
-In this part, the necessary prerequisites and dependencies for using the repository are listed. It provides users with information on the required environment and software versions needed to run the code effectively.
+...
 
 ## Installation
 
-This section provides instructions on how to install the repository and its dependencies. It may include commands or guidelines for setting up the environment, installing packages, or configuring settings to ensure smooth installation.
 
 ```
 # The necessary commands for the install must be put in scripts snippets like this
@@ -32,11 +29,6 @@ python -m pip install -r /path/to/requirements.txt
 
 ## Usage
 
-Users are provided with examples or guidelines on how to use the code or features within the repository. It typically includes code snippets, explanations, and usage scenarios to help users understand how to interact with the provided functionality. It may also include links to example notebooks stored in the repository.
-
-Code snippets example:
-
-
 ```python
 # The necessary commands to run this demo app
 streamlit run Apps.py
@@ -44,7 +36,8 @@ streamlit run Apps.py
 ```
 
 ## Documentation
-This part serves as comprehensive documentation for the repository's features, methods, and classes. It explains the functionalities, usage instructions, and available options in detail to assist users in utilizing the repository effectively.
+
+...
 
 ## Contributing
 If one would like to contribute to the repository, issues can be reported, improvements suggested, or merge requests submitted. The guidelines need to be followed for contributing and any specific requirements or coding standards need to be adopted.
@@ -56,7 +49,10 @@ This code is for internal use and research purposes only.
 For any questions or inquiries, please contact the maintener xin.huang@capgemini.com
 
 ## Acknowledgements
-Contributors acknowledge and express gratitude to individuals, organizations, or projects that have contributed to or influenced the repository's development. It's a way to recognize and appreciate external contributions and collaborations.
+
+...
 
 ## References
-The references section includes citations and links to relevant literature, research papers, or external resources that are pertinent to the repository's subject matter. It provides users with additional reading materials and sources for further exploration.
+
+...
+
