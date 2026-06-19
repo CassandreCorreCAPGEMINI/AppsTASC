@@ -228,7 +228,7 @@ if "files" not in st.session_state:
 if prompt := st.chat_input("How can I help you?", accept_file="multiple"):
     user_message, user_files = prompt["text"], prompt["files"]
     if user_message is None:
-            response = st.markdown(response_generator("hello, ")
+            response = st.markdown(response_generator("hello, "))
     # Display user message in chat message container
     with st.chat_message("user"):
         st.markdown(user_message)
