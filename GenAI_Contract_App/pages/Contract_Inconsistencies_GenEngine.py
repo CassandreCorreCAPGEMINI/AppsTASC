@@ -112,7 +112,7 @@ selected_rules = st.text_area(
 )
 
 SOCKET_URL = "wss://ws.generative.engine.capgemini.com/"
-API_TOKEN = "Skez00ykD41q9jG3JR3jl4kOY4Fyp4Q6pgKlbJE3"
+API_TOKEN = "16zuz9jnWZ7WLRwkIXYtb7TO7igJnBhRadp6fPOj"
 
 
 def generate(user_prompt):
