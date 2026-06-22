@@ -81,6 +81,7 @@ pip install -r requirements.txt
 
 Launch the application with:
 ```bash
+cd GenAI_Contract_App
 streamlit run main_tasc.py
 ```
 
