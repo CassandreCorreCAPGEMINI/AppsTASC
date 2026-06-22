@@ -40,8 +40,7 @@ python -m pip install -r /path/to/requirements.txt
 
 ```python
 # The necessary commands to run this demo app
-cd GenAI_Contract_App
-streamlit run main_tasc.py
+streamlit run Apps.py
 
 ```
 
