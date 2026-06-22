@@ -146,7 +146,7 @@ def send_query(ws, prompt, session_id):
             "mode": "chain",
             "text": prompt,
             "files": [],
-            "modelName": "anthropic.claude-v2",
+            "modelName": "us.anthropic.claude-sonnet-4-20250514-v1:0",
             "provider": "bedrock",
             "sessionId": str(session_id),
             "workspaceId": "",

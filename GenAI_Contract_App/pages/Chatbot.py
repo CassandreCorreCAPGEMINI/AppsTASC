@@ -157,7 +157,7 @@ def send_query(ws, message_utilisateur):
                 "mode": "chain",
                 "text": message_utilisateur,
                 "files": [],
-                "modelName": "anthropic.claude-v2",
+                "modelName": "us.anthropic.claude-sonnet-4-20250514-v1:0",
                 "provider": "bedrock",
                 "systemPrompt": system_prompt,
                 "sessionId": st.session_state.sessionId,
