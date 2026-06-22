@@ -240,7 +240,7 @@ def send_query(ws, message_utilisateur):
                     {
                         "type": "database",
                         "id": "cf3b4fae-353d-4cc0-9219-f51c494a945c",
-                        "retrievalKwargs": 3
+                        "retrievalKwargs": {"topK": 3}
                     }
                 ],
                 "files": [],
