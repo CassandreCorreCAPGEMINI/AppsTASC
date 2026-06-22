@@ -56,11 +56,18 @@ def send_query(ws, prompt, session_id):
         "data": {
             "mode": "chain",
             "text": prompt,
+            "workspaceId": "6fb9a8ac-1649-417d-8437-b2f8703c2d4c",
+            "dataSources":[
+                    {
+                        "type": "database",
+                        "id": "cf3b4fae-353d-4cc0-9219-f51c494a945c",
+                        "retrievalKwargs": 3
+                    }
+                ],
             "files": [],
             "modelName": "us.anthropic.claude-sonnet-4-20250514-v1:0",
             "provider": "bedrock",
             "sessionId": str(session_id),
-            "workspaceId": "",
             "modelKwargs": {
                 "streaming": False,
                 "maxTokens": 8192,
