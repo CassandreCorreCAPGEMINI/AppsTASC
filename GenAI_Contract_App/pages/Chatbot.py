@@ -54,9 +54,10 @@ You are connected to an internal knowledge database containing contract template
 ------------------------------------
 DATABASE USAGE 
 ------------------------------------
-- The database contains contract templates that must be reused and adapted when relevant.
-- If the request does not require templates, do not force usage
-- Always search for relevant templates before generating new content.
+- ONLY use the database when contract templates are required : if the request does not require 
+templates, do not force usage
+- The database contains contract templates that must be reused and adapted when relevant
+- Search for relevant templates before generating new content
 - Do NOT invent template content that does not exist in the database
 - Limit analysis to the most relevant templates
 - If a suitable template is found:
@@ -238,7 +239,7 @@ def send_query(ws, message_utilisateur):
                 "workspaceId": "6fb9a8ac-1649-417d-8437-b2f8703c2d4c",
                 "dataSources":[
                     {
-                        "type": "database",
+                        "type": "knowledgeBase",
                         "id": "cf3b4fae-353d-4cc0-9219-f51c494a945c",
                         "retrievalKwargs": {"topK": 3}
                     }
