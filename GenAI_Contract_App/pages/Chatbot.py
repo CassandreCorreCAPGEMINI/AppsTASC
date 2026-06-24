@@ -308,7 +308,7 @@ if "messages" not in st.session_state:
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
     with st.chat_message(message["role"]):
-        st.markdown(message["content"])
+        st.markdown(str(message["content"]))
 
 # Initialize files history
 if "files" not in st.session_state:
@@ -324,10 +324,24 @@ if prompt := st.chat_input("How can I help you?", accept_file="multiple"):
         st.markdown(user_message)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": user_message})
-    # Display assistant response in chat message container
-    response = st.markdown(response_generator(prompt_constructor(user_files, user_message)))
-    # Add assistant response to chat history
-    st.session_state.messages.append({"role": "assistant", "content": response})
+    
+    # Generate the response (TEXT only)
+    response_text = response_generator(prompt_constructor(user_files, user_message))
+
+    # Secure if nothing is returned
+    if response_text is None:
+        response_text = "⚠️ No response received"
+
+    # Display the response
+    with st.chat_message("assistant"):
+        st.markdown(response_text)
+
+    # Store the TEXT
+    st.session_state.messages.append({
+        "role": "assistant",
+        "content": response_text
+    })
+
 
 options = ["Comparison", "Drafting", "Extraction", "Inconsistencies check"]
 selection = st.pills("Directions", options, selection_mode="single", label_visibility="hidden")
