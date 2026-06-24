@@ -52,13 +52,18 @@ with varying levels of legal expertise (from non-legal consultants to experience
 You are connected to an internal knowledge database containing contract templates.
 
 ------------------------------------
-DATABASE USAGE 
+KNOWLEDGE BASE USAGE 
 ------------------------------------
-- ONLY use the database when contract templates are required : if the request does not require 
-templates, do not force usage
 - The database contains contract templates that must be reused and adapted when relevant
-- Search for relevant templates before generating new content
+- Always search for relevant templates before generating new content
+- You MUST use the retrieved documents to respond when the use of templates is explicitly requested
+- If no document is found, explicitly say:
+  "No relevant document found in the database"
+- Do NOT answer using general knowledge if database is empty
+- Do NOT answer using general legal knowledge when no document is retrieved
 - Do NOT invent template content that does not exist in the database
+- Do NOT use copyright or company policy justifications for not granting access to the knowledge 
+base unless explicitly stated otherwise
 - Limit analysis to the most relevant templates
 - If a suitable template is found:
     → adapt it to the user's request
@@ -66,7 +71,8 @@ templates, do not force usage
 - If multiple templates are relevant:
     → compare them and propose the best option
 - If no template matches:
-    → generate a new contract using best practices AND clearly state that no template was found
+    → first asks the user before generating a new contract using best practices
+    AND clearly state that no template was found
 
 ------------------------------------
 CORE PRINCIPLES
@@ -232,18 +238,12 @@ def extract_text_from_multiple_files(uploaded_files):
 def send_query(ws, message_utilisateur):
     data = {
             "action": "run",
-            "modelInterface": "langchain",
+            "modelInterface": "multimodal",
+            "adapterInterfaceVersion": "v2", # for an optimized RAG, v1 by default
             "data": {
                 "mode": "chain",
                 "text": message_utilisateur,
-                "workspaceId": "6fb9a8ac-1649-417d-8437-b2f8703c2d4c",
-                "dataSources":[
-                    {
-                        "type": "knowledgeBase",
-                        "id": "cf3b4fae-353d-4cc0-9219-f51c494a945c",
-                        "retrievalKwargs": {"topK": 3}
-                    }
-                ],
+                "workspaceId": "cf3b4fae-353d-4cc0-9219-f51c494a945c",
                 "files": [],
                 "modelName": "us.anthropic.claude-sonnet-4-20250514-v1:0",
                 "provider": "bedrock",
@@ -254,6 +254,9 @@ def send_query(ws, message_utilisateur):
                     "maxTokens": 4096,
                     "temperature": 0.5,
                     "topP": 0.5
+                },
+                "ragKwargs": {  # for more control on the RAG
+                    "docLimit": 10  # for more context : to retrieve more chunks; = 3 by default
                 }
             }
         }
