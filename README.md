@@ -1,67 +1,134 @@
-# AppsTASC
+# TASC - Generative AI for Contract Management
 
-## Description
+![TASC Logo](TASC-orange-horizontal-logo.png)
 
-This project contains all demo codes of the TASC project.
+## Overview
 
-EDC-2.015
-The Generative AI application built to optimize contract management is located in the folder "GenAI_Contract_App". Everything needed to run the application is in this folder. Please read the readme.md file that is in the folder "GenAI_Contract_App" if you would like to know more information about the contract optimization application. 
+TASC (Transformative AI for Smart Contracts) is a comprehensive Streamlit web application designed to streamline contract management processes using generative AI. The application leverages Capgemini's Generative Engine to provide intelligent contract analysis, drafting, comparison, and information extraction capabilities.
 
-## RDI Method: EDC(s)
+## Features
 
-| EDCs| PDE | Internal Article |Current State| Main File| Main Contributor|Corresponding EDC|
-|----------|----------|----------|----------|----------|----------|----------|
-|2.004|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdEhqTY2Eh5Pv96VtLIYRCMBlQtLHIzJF9cjqrAmpmlwAg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/ESjmdDSDqBdAsO-hf8D30eMB2UkJiCzH-JoJQUce0jtrCA)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
-|2.010|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EdHaLcrVWeBBu6UiHLPN-n0BSrhjsNah5IM3wHvojZqmVQ)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EW4Pivo4gTFMq6AJSRL7gfkBdY99erAHCIWbTZWgebJEVA)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
-|2.015|[](TBD)|[](TBD)|En consolidation| [GenAI_Contract_App/main_tasc.py](...)|RIOUFFREYT Akhli| ... |
-|3.002|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/EV5asCoZRjpHmvgsam-hvHEBO9sf4qM8A5_u54EpiHoTkQ)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EWR_nL8aE59MvRXz0-b9tk8BljSQE26TN9q44DoFUKMXPg)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
-|4.003|[Link to PDE](https://capgemini.sharepoint.com/:p:/s/CDP_RDI/ERVHoIk5znxCtWG8jiJR9g8Bigv1mKQpJr4w7MEEf_NTmg)|[Link to Internal Article](https://capgemini.sharepoint.com/:w:/s/CDP_RDI/EYKA-SKZd6VIjNJhQ8-pFKIB1K3wDV5cv1rL_o_iecMR7A)|Consolidé| [Apps.py](...)|HUANG Xin| ... |
+### Contract Drafting
+Generate professional contract drafts and clauses based on specific requirements. The system can create:
+- Complete procurement contracts
+- Specialized contract clauses (renewal terms, insurance, termination, etc.)
+- Customized legal documents based on detailed specifications
 
+### Contract Extraction
+Extract key information from existing contracts with high accuracy:
+- Document names and parties
+- Governing laws and jurisdictions
+- Insurance clauses and effective dates
+- Renewal terms and other critical contract elements
 
+### Contract Compare
+Compare two contracts to identify differences and similarities:
+- Side-by-side comparison in table format
+- Highlight key differences between contract versions
+- Identify missing or additional clauses
 
-## Requirements
+### Contract Inconsistencies
+Detect inconsistencies within contracts based on predefined rules:
+- Check for conflicting governing laws
+- Identify duplicate or contradictory clauses
+- Ensure compliance with organizational standards
 
-...
+### Contract Terms Search
+Find similar contract terms in a database of previously reviewed contracts:
+- Semantic search using embedding technology
+- Display top matches with similarity scores
+- Help reuse validated contract language
 
-## Installation
+### Contract Assistant
+Interactive chatbot interface for contract-related queries:
+- Ask questions about specific contracts
+- Get expert guidance on contract management
+- Maintain conversation context across multiple interactions
 
+## Technical Architecture
+TASC is built using:
+- **Streamlit**: For the web interface and interactive components
+- **Capgemini Generative Engine**: For AI-powered text generation and analysis
+- **PyPDF** and **PyMuPDF**: For PDF processing and text extraction
+- **Sentence Transformers**: For semantic search capabilities
+- **WebSocket**: For real-time communication with the Generative Engine API
 
+## Getting Started
+
+### Prerequisites
+- Python 3.8+
+- Required Python packages (see `requirements.txt`)
+- Access credentials for Capgemini Generative Engine
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://gitlab.com/your-organization/tasc.git
+cd tasc
 ```
-# The necessary commands for the install must be put in scripts snippets like this
-python -m pip install -r /path/to/requirements.txt
+
+2. Install dependencies:
+```bash
+pip install -r requirements.txt
 ```
 
+3. Set up your API credentials:
+   - Ensure you have the required API key for Capgemini Generative Engine
+   - Place your credentials file in the project directory (if applicable)
+
+### Running the Application
+
+Launch the application with:
+```bash
+cd GenAI_Contract_App
+streamlit run main_tasc.py
 ```
-# All the code of the contract optimization application is located in the folder "GenAI_Contract_App"
-# The necessary requirements for the contract optimization application is located in GenAI_Contract_App/requirements.txt
-```
+
+The application will be available at `http://localhost:8501` by default.
 
 ## Usage
 
-```python
-# The necessary commands to run this demo app
-streamlit run Apps.py
+1. Select the desired functionality from the sidebar
+2. Follow the on-screen instructions for each tool:
+   - Upload contracts as PDF or TXT files
+   - Enable OCR for scanned documents if needed
+   - Enter specific requirements or questions
+   - Submit your request and view the results
+
+## File Structure
 
 ```
+tasc/
+├── main_tasc.py                    # Main application entry point
+├── pages/                          # Directory containing all feature pages
+│   ├── Chatbot.py                  # Contract assistant chatbot
+│   ├── Contract_Compare_GenEngine.py   # Contract comparison tool
+│   ├── contract_drafting_GenEngine.py  # Contract drafting tool
+│   ├── contract_extract_GenEngine.py   # Information extraction tool
+│   ├── Contract_inconsistencies_GenEngine.py  # Inconsistency detection
+│   └── Contract_Terms_Search.py    # Similar terms search tool
+├── TASC-orange-horizontal-logo.png # Application logo
+└── requirements.txt                # Python dependencies
+```
 
-## Documentation
+## Future Enhancements
 
-...
+- Integration of agentic systems for advanced contract analysis
 
 ## Contributing
-If one would like to contribute to the repository, issues can be reported, improvements suggested, or merge requests submitted. The guidelines need to be followed for contributing and any specific requirements or coding standards need to be adopted.
+
+Please contact the project maintainers for information about contributing to this project.
 
 ## License
-This code is for internal use and research purposes only.
+
+This project is proprietary and confidential. Unauthorized copying, transferring, or reproduction of the contents of this project, via any medium, is strictly prohibited.
 
 ## Contact
-For any questions or inquiries, please contact the maintener xin.huang@capgemini.com
 
-## Acknowledgements
+For questions or support, please contact:
+- Akhli RIOUFFREYT - akhli.riouffreyt@capgemini.com
 
-...
+---
 
-## References
-
-...
-
+*Developed by Capgemini*
