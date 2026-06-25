@@ -1,18 +1,18 @@
-streamlit==1.43.2
+streamlit==1.32.0
 
-pandas==2.2.3
+pandas==2.1.4
 numpy==1.26.4
 
-pypdf==5.4.0
-pdf2image==1.17.0
-pillow==10.3.0
+pypdf==4.2.0
+pdf2image==1.16.3
+pillow==9.5.0
 
-pytesseract==0.3.13
+pytesseract==0.3.10
 
-websocket-client==1.8.0
-requests==2.32.3
+websocket-client==1.6.1
+requests==2.31.0
 
-neo4j==5.19.0
+neo4j==5.14.1
 
 python-magic==0.4.27
-#python-magic-bin~=0.4.14
+``
