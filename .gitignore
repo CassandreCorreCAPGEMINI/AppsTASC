@@ -4,13 +4,16 @@ env_streamlit/
 
 # Modèles ML
 models/
-*.h5
-*.pkl
-*.pth
 
 # Données et embeddings
 data/
-*.npy
 
-# Fichiers volumineux
+# Fichiers lourds
 *.dll
+*.npy
+*.pt
+*.h5
+
+# Python cache
+__pycache__/
+*.pyc
