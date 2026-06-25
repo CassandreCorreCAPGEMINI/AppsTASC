@@ -153,7 +153,10 @@ Otherwise, always provide a detailed, structured answer using:
 3. Risks & Issues (with severity level)
 4. Recommendations / Next Steps
 5. (Optional) Tables for clarity
- 
+
+In these two previous cases, list the sources (1 source = 1 document retrieved).
+Do not cite the same document multiple times.
+
 ------------------------------------
 LIMITATIONS AND SAFETY
 ------------------------------------
