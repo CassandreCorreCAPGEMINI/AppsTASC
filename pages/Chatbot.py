@@ -195,7 +195,6 @@ def extract_text_from_pdf(uploaded_file):
         pdf_document = fitz.open(stream=uploaded_file.read(), filetype="pdf")
         extracted_text = extract_text_from_pdf_ocr(pdf_document)
         raw_text = extracted_text
-        return raw_text, file_name
     else:
         if uploaded_file is not None:
             file_name = uploaded_file.name
@@ -207,8 +206,14 @@ def extract_text_from_pdf(uploaded_file):
                 for page in reader.pages:
                     text += page.extract_text() + "\n"
                 raw_text = text
-
-        return raw_text, file_name
+    
+    # LIMIT TEXT SIZE
+    max_chars = 5000  # ~12k tokens
+    if len(raw_text) > max_chars:
+        print(f"⚠️ Fichier tronqué: {len(raw_text)} -> {max_chars} caractères")
+        raw_text = raw_text[:max_chars] + "\n\n[... Document tronqué pour raisons de taille ...]"
+    
+    return raw_text, file_name
 
 
 def extract_text_from_multiple_files(uploaded_files):
