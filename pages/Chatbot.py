@@ -315,6 +315,9 @@ def upload_file_chunks(uploaded_file):
     chunks, file_name = split_into_chunks(uploaded_file)
 
     total_chunks = len(chunks)
+    
+    progress_text = f"Uploading {file_name} ..."
+    progress_bar = st.progress(0, text=progress_text)
 
     for index, chunk in enumerate(chunks):
 
@@ -343,6 +346,9 @@ def upload_file_chunks(uploaded_file):
         print(
             f"✅ Chunk {index + 1}/{total_chunks} uploaded"
         )
+        # uncomment to see in the chat the uploading of the documents' chunks
+        # st.write(f"Uploading chunk {index + 1}/{total_chunks}")
+        progress_bar.progress((index + 1)/total_chunks, text = progress_text)
 
 
 def prompt_constructor(files, msg):
