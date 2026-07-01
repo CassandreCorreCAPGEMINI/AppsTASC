@@ -3,7 +3,7 @@
 
 """
 @File    :   Chatbot.py
-@Time    :   2025/03/25 11:11
+@Time    :   2026/07
 @Author  :   Cassandre CORRE (predecessors: Akhli RIOUFFREYT, Xin HUANG)
 @Version :   2.0
 """
@@ -19,19 +19,12 @@ import fitz
 
 def header_app():
     st.image("TASC-orange-horizontal-logo.png", width=500, )
-    with st.expander("ℹ️ - About this app", expanded=True):
-        st.write(
-            """     
--   The *Contract assistant* app is used to answer questions relative to any contract.
--   Our assistant can perform the following tasks:
-      - Compare contracts
-      - Draft contracts
-      - Extract specific information from a contract
-      - Look for inconsistencies (if any) in a contract
-       
--   Our app is using Capgemini Generative engine.
-"""
-        )
+    with st.container(border=True):
+        st.write("""
+                Welcome to the contract assistant chatbot !
+                The **Contract assistant** can help you with any questions related to legal contracts.
+                """
+                )
 
 
 header_app()
@@ -372,8 +365,33 @@ def prompt_constructor(files, msg):
     return msg
 
 
-st.header('Contract assistant', divider='rainbow')  # titre
+st.markdown("""
+<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600&display=swap" 
+            rel="stylesheet">            
+
+<h1 style="
+    color: rgb(49, 51, 63);
+    font-family: 'Nunito', sans-serif;
+    font-size: 2.2rem;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+">
+    Contract Assistant
+</h1>
+
+<hr style="
+    border: none;
+    height: 3px;
+    background-color: #56D6D4;
+    border-radius: 5px;
+    margin-top: 0;
+    margin-bottom: 1rem;
+">
+""", unsafe_allow_html=True)
+
+
 ocr1 = st.checkbox("Enable OCR: for reading pdf scanned on image", key="ocr1")
+
 
 # Initialize chat history
 if "messages" not in st.session_state:

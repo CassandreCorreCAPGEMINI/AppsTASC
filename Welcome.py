@@ -1,11 +1,10 @@
 #!/usr/bin/env python
 # -*- encoding: utf-8 -*-
 """
-@File    :   tasc.py
-@Time    :   2025/03/25 11:11
-@Author  :   Akhli RIOUFFREYT
-@Version :   1.0
-@Contact :   akhli.riouffreyt@capgemini.com
+@File    :   Welcome.py
+@Time    :   2026/07
+@Author  :   Cassandre CORRE (predecessors: Akhli RIOUFFREYT, Xin HUANG)
+@Version :   2.0
 """
 
 # here put the import lib
@@ -22,19 +21,17 @@ def run():
 
     st.write("# Welcome to Project TASC! ")
 
-    st.sidebar.success("Select an app above.")
+    #st.sidebar.success("Select an app above.")
 
     st.markdown(
         """
-       
-        ** 👈 Select an app from the sidebar** to see some examples
-      
-        - This app "Generative AI for contract management" is an easy-to-use interface built with Streamlit.
-        - Our app is using Capgemini Generative Engine. 
-    """
+        This application use generative AI for contract management. 
+        It has is an easy-to-use interface built with Streamlit. 
+        Our application is using Capgemini Generative Engine. 
+        """
     )
 
-    with st.expander("ℹ️ - About this app", expanded=True):
+    with st.expander("ℹ️ - About this application", expanded=False):
 
         st.write(
         """
