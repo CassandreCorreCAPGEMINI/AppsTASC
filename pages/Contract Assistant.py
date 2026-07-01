@@ -399,6 +399,7 @@ if "messages" not in st.session_state:
 
 # Display chat messages from history on app rerun
 for message in st.session_state.messages:
+    avatar = "👤" if message["role"]=="user" else "⚖️"
     with st.chat_message(message["role"]):
         st.markdown(str(message["content"]))
 
@@ -412,7 +413,7 @@ if prompt := st.chat_input("How can I help you?", accept_file="multiple"):
     if user_message is None:
             response = st.markdown(response_generator("hello, "))
     # Display user message in chat message container
-    with st.chat_message("user"):
+    with st.chat_message("user", avatar = "👤"):
         st.markdown(user_message)
     # Add user message to chat history
     st.session_state.messages.append({"role": "user", "content": user_message})
@@ -425,7 +426,7 @@ if prompt := st.chat_input("How can I help you?", accept_file="multiple"):
         response_text = "⚠️ No response received"
 
     # Display the response
-    with st.chat_message("assistant"):
+    with st.chat_message("assistant", avatar="⚖️"):
         st.markdown(response_text)
 
     # Store the TEXT
