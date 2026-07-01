@@ -4,9 +4,8 @@
 """
 @File    :   Chatbot.py
 @Time    :   2025/03/25 11:11
-@Author  :   Akhli RIOUFFREYT
-@Version :   1.0
-@Contact :   akhli.riouffreyt@capgemini.com
+@Author  :   Cassandre CORRE (predecessors: Akhli RIOUFFREYT, Xin HUANG)
+@Version :   2.0
 """
 
 import streamlit as st
@@ -207,12 +206,8 @@ def extract_text_from_pdf(uploaded_file):
                     text += page.extract_text() + "\n"
                 raw_text = text
     
-    # LIMIT TEXT SIZE
-    max_chars = 5000  # ~12k tokens
-    if len(raw_text) > max_chars:
-        print(f"⚠️ Fichier tronqué: {len(raw_text)} -> {max_chars} caractères")
-        raw_text = raw_text[:max_chars] + "\n\n[... Document tronqué pour raisons de taille ...]"
-    
+    print(f"✅ {file_name}: {len(raw_text)} characters extracted")
+
     return raw_text, file_name
 
 
@@ -301,16 +296,74 @@ def response_generator(prompt_to_send):
     return generated_response
 
 
+def split_into_chunks(uploaded_file):
+
+    raw_text, file_name = extract_text_from_pdf(uploaded_file)
+
+    max_chars = 26000
+
+    chunks = [
+        raw_text[i:i + max_chars]
+        for i in range(0, len(raw_text), max_chars)
+    ]
+
+    return chunks, file_name
+
+
+def upload_file_chunks(uploaded_file):
+
+    chunks, file_name = split_into_chunks(uploaded_file)
+
+    total_chunks = len(chunks)
+
+    for index, chunk in enumerate(chunks):
+
+        prompt = f"""
+        DOCUMENT NAME: {file_name}
+
+        CHUNK {index + 1}/{total_chunks}
+        
+        This is only one part of the document.
+        
+        Store it in memory.
+        
+        Do NOT analyse it.
+        Do NOT answer any question.
+        
+        Reply ONLY with:
+        
+        ACK
+        
+        CONTENT:
+        {chunk}
+        """
+
+        response_generator(prompt)
+
+        print(
+            f"✅ Chunk {index + 1}/{total_chunks} uploaded"
+        )
+
+
 def prompt_constructor(files, msg):
+
     if files:
-        files_content = extract_text_from_multiple_files(files)
-        for i, file in enumerate(files_content):
-            user_prompt = msg + f"\ncontract n°{i} called " + file["name"] + "\n" + file["content"]
-            # Add user file to file history
-            st.session_state.files.append(file)
-        return user_prompt
-    else:
-        return msg
+
+        for uploaded_file in files:
+
+            upload_file_chunks(uploaded_file)
+
+        return f"""
+        All document chunks have been uploaded.
+        
+        Answer the following user request using all uploaded documents.
+        
+        User request:
+        
+        {msg}
+        """
+
+    return msg
 
 
 st.header('Contract assistant', divider='rainbow')  # titre
